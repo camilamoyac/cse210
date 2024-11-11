@@ -35,15 +35,11 @@ class Program
             Console.WriteLine($"{name}, the square of your number is {squared}.");
         }
 
-        static void main()
-        {
-            DisplayWelcome();
-            string name = PromptUserName();
-            int number = PromptUserNumber();
-            int squared = SquareNumber(number);
-            DisplayResult(name, squared);
-        }
-
-        main();
+        DisplayWelcome();
+        string name = PromptUserName();
+        int number = PromptUserNumber();
+        int squared = SquareNumber(number);
+        DisplayResult(name, squared);
+        
     }
 }
