@@ -17,7 +17,7 @@ class Program
         numberList.Add(number);
         }
 
-        int amount = numberList.Count;
+        int amount = numberList.Count - 1;
         int total = 0;
         int highest = 0;
         foreach (int element in numberList)
