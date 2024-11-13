@@ -14,10 +14,13 @@ class Program
         Console.Write("Enter number: ");
         string numberInput = Console.ReadLine();
         number = int.Parse(numberInput);
-        numberList.Add(number);
+        if (number != 0)
+        {
+            numberList.Add(number);
+        }
         }
 
-        int amount = numberList.Count - 1;
+        int amount = numberList.Count;
         int total = 0;
         int highest = 0;
         foreach (int element in numberList)
@@ -29,7 +32,7 @@ class Program
             }
         }
 
-        int average = total / amount;
+        float average = total / amount;
 
         Console.WriteLine($"The sum is: {total}");
         Console.WriteLine($"The average is: {average}");
