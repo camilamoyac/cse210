@@ -32,10 +32,10 @@ class Program
             }
         }
 
-        float average = total / amount;
+        float average = (float)total / amount;
 
         Console.WriteLine($"The sum is: {total}");
-        Console.WriteLine($"The average is: {average}");
+        Console.WriteLine($"The average is: {average:f1}");
         Console.WriteLine($"The highest number is: {highest}");
     }
 }
