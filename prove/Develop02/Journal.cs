@@ -5,31 +5,31 @@ using System.IO;
 public class Journal
 {
     public List<Entry> _entryList = new List<Entry>();
-    public int streak = 0;
-    public DateTime? lastEntryDate = null;
+    public int _streak = 0;
+    public DateTime? _lastEntryDate = null;
 
     public void AddEntry(Entry entry)
     {   
         _entryList.Add(entry);
 
         DateTime entryDate = DateTime.Parse(entry._date);
-        if (lastEntryDate.HasValue)
+        if (_lastEntryDate.HasValue)
         {
-            if ((entryDate - lastEntryDate.Value).Days == 1)
+            if ((entryDate - _lastEntryDate.Value).Days == 1)
             {
-                streak++;
+                _streak++;
             }
-            else if ((entryDate - lastEntryDate.Value).Days > 1)
+            else if ((entryDate - _lastEntryDate.Value).Days > 1)
             {
-                streak = 1;
+                _streak = 1;
             }
         }
         else
         {
-            streak = 1;
+            _streak = 1;
         }
 
-        lastEntryDate = entryDate;
+        _lastEntryDate = entryDate;
     }
 
     public void DisplayAll()
@@ -42,7 +42,7 @@ public class Journal
 
     public void DisplayStreak()
     {
-        Console.WriteLine($"Current streak: {streak} days");
+        Console.WriteLine($"Current streak: {_streak} days");
     }
 
     public void SaveToFile(string filename)
@@ -54,8 +54,8 @@ public class Journal
                 string line = $"{element._date}|{element._prompt}|{element._entry}";
                 outputFile.WriteLine(line);
             }
-            outputFile.WriteLine($"Streak:{streak}");
-            outputFile.WriteLine($"LastEntryDate:{(lastEntryDate.HasValue ? lastEntryDate.Value.ToShortDateString() : "null")}");    
+            outputFile.WriteLine($"Streak:{_streak}");
+            outputFile.WriteLine($"LastEntryDate:{(_lastEntryDate.HasValue ? _lastEntryDate.Value.ToShortDateString() : "null")}");    
         }
     }
 
@@ -67,12 +67,12 @@ public class Journal
         {
             if (line.StartsWith("Streak:"))
             {
-                streak = int.Parse(line.Replace("Streak:", "").Trim());
+                _streak = int.Parse(line.Replace("Streak:", "").Trim());
             }
             else if (line.StartsWith("LastEntryDate:"))
             {
                 string dateString = line.Replace("LastEntryDate:", "").Trim();
-                lastEntryDate = dateString != "null" ? DateTime.Parse(dateString) : (DateTime?)null;
+                _lastEntryDate = dateString != "null" ? DateTime.Parse(dateString) : (DateTime?)null;
             }
             else
             {
