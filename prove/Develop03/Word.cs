@@ -1,25 +1,37 @@
+using System.ComponentModel.DataAnnotations;
+
 public class Word
 {
     private string _text;
     private bool _isHidden;
 
-    Word(string text)
-    {}
+    public Word(string text)
+    {
+        _text = text;
+    }
 
     public void Hide()
     {
-
+        _isHidden = true;
     }
     public void Show()
     {
-
+        _isHidden = false;
     }
     public bool IsHidden()
     {
-        return true;
+        return _isHidden;
     }
     public string GetDisplayText()
     {
-        return "";
+        if (_isHidden)
+        {
+            string hiddenText = new string('-', _text.Length);
+            return hiddenText;
+        }
+        else
+        {
+            return _text;
+        }
     }
 }
