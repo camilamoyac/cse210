@@ -16,7 +16,7 @@ public class Scripture
         }
     }
 
-    public void HiderandomWords(int numberToHide)
+    public void HideRandomWords(int numberToHide)
     {
         List<Word> visibleWords = new List<Word>();
         foreach(Word word in _words)
