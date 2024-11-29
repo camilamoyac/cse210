@@ -26,7 +26,7 @@ public class Word
     {
         if (_isHidden)
         {
-            string hiddenText = new string('-', _text.Length);
+            string hiddenText = new string('_', _text.Length);
             return hiddenText;
         }
         else
