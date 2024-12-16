@@ -2,7 +2,7 @@ using System;
 
 public class BodyScanActivity : Activity
 {
-    List<string> _bodyParts;
+    private List<string> _bodyParts;
     public BodyScanActivity()
     {
         _name = "Body Scan Activity";
