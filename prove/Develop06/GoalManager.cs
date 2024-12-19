@@ -10,9 +10,15 @@ public class GoalManager
     }
 
     public void Start()
-    {}
+    {
+        DisplayPlayerInfo();
+
+        
+    }
     public void DisplayPlayerInfo()
-    {}
+    {
+        Console.WriteLine($"You have {_score} points.");
+    }
     public void ListGoalNames ()
     {}
     public void ListGoalDetails ()
